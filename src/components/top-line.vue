@@ -1,0 +1,84 @@
+<template>
+  <header class="top-line">
+    <ul class="top-line__rout">
+      <li class="top-line__route-list-item">
+        <a href="#" class="top-line__rout-link">Home</a>
+        <img
+          class="top-line__shevron top-line__shevron_visible"
+          src="../assets/greenShevron.svg"
+          alt="shevron"
+        >
+      </li>
+      <li class="top-line__route-list-item">
+        <a href="#" class="top-line__rout-link">Search</a>
+        <img
+          class="top-line__shevron top-line__shevron_visible"
+          src="../assets/greenShevron.svg"
+          alt="shevron"
+        >
+      </li>
+      <li class="top-line__route-list-item">
+        <a href="#" class="top-line__rout-link">Results</a>
+        <img class="top-line__shevron" src="../assets/greenShevron.svg" alt="shevron">
+      </li>
+    </ul>
+    <div class="current-user">
+      <span class="current-user__name">Faruh Bernandez</span>
+      <a href="#">
+        <img src="../assets/black-down-Shevron.svg" alt="shevron">
+      </a>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.top-line {
+  display: flex;
+  padding-left: 120px;
+  padding-right: 40px;
+  height: 62px;
+  background-color: #fff;
+  justify-content: space-between;
+}
+.top-line__route-list-item {
+  display: inline-block;
+  margin-right: 12px;
+}
+.top-line__rout {
+  display: flex;
+  align-items: center;
+}
+.top-line__rout-link {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #252f48;
+  margin-right: 13px;
+}
+.top-line__shevron {
+  visibility: hidden;
+}
+.top-line__shevron_visible {
+  visibility: visible;
+}
+.current-user {
+  display: flex;
+  align-items: center;
+}
+.current-user__name {
+  margin-right: 8px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #252f48;
+}
+</style>
