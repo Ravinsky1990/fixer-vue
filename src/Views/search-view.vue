@@ -18,36 +18,49 @@
         <sortBox></sortBox>
       </div>
       <div class="searchResults">
-        <userItem></userItem>
+        <userItem
+        v-for='user in users'
+        v-bind:user = 'user'
+        v-bind:key="user.id"
+        ></userItem>
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import formSelect from "../components/formSelect.vue";
-import formInput from "../components/formInput.vue";
-import appBtn from "../components/appBtn.vue";
-import sortBox from "../components/sortBox.vue";
-import userItem from "../components/userItem.vue";
+import axios from 'axios';
+import formSelect from '../components/formSelect.vue';
+import formInput from '../components/formInput.vue';
+import appBtn from '../components/appBtn.vue';
+import sortBox from '../components/sortBox.vue';
+import userItem from '../components/userItem.vue';
 
 export default {
   data() {
     return {
-      locationOptions: ["Canada", "United States"],
-      categoryOptions: ["All", "Front-end", "Back-end"],
-      serviceOptions: ["servise1", "servise2"],
-      inputStyles: { paddingLeft: "4px" },
-      btnStyles: { marginTop: "32px" }
+      locationOptions: ['Canada', 'United States'],
+      categoryOptions: ['Front-end', 'Back-end'],
+      serviceOptions: ['servise1', 'servise2'],
+      inputStyles: { paddingLeft: '6px' },
+      btnStyles: { marginTop: '32px' },
     };
+  },
+  computed: {
+    users(){
+      return [...this.$store.state.users]
+    }
   },
   components: {
     formSelect,
     formInput,
     appBtn,
     sortBox,
-    userItem
-  }
+    userItem,
+  },
+  mounted(){
+    this.$store.dispatch('fetchUsers');
+  },
 };
 </script>
 
@@ -83,10 +96,10 @@ export default {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around;
   height: 454px;
   overflow-y: scroll;
   align-items: flex-start;
+  justify-content: space-around;
 }
 .selectGroup {
   flex-basis: 300px;

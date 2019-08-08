@@ -1,6 +1,8 @@
 <template>
   <div :style="btnStyles">
-    <button :style="btnStyles" class="appBtn" type="button">{{title}}</button>
+    <button :style="btnStyles"
+    @click="searchUsers"
+     class="appBtn" type="button">{{title}}</button>
   </div>
 </template>
 
@@ -8,15 +10,20 @@
 export default {
   props: {
     title: String,
-    styles: Object
+    styles: Object,
+  },
+  methods: {
+    searchUsers() {
+      this.$emit('search');
+    },
   },
   computed: {
     btnStyles() {
       return {
-        ...this.styles
+        ...this.styles,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

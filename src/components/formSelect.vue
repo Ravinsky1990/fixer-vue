@@ -8,17 +8,17 @@
 </template>
 
 <script>
-import vSelect from "vue-select";
+import vSelect from 'vue-select';
 
 export default {
   props: {
     label: String,
     options: Array,
-    placeholder: String
+    placeholder: String,
   },
   components: {
-    vSelect
-  }
+    vSelect,
+  },
 };
 </script>
 
@@ -27,10 +27,11 @@ export default {
   border: 2px solid #f2f2f2;
   height: 41px;
   cursor: pointer;
+  background: #fcfcfc;
 }
 
 .v-select .vs__search {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -49,7 +50,7 @@ export default {
 }
 
 .v-select .vs__dropdown-menu {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -57,7 +58,7 @@ export default {
   color: #35373b;
 }
 .v-select .vs__selected {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -70,7 +71,7 @@ export default {
   margin-bottom: 20px;
 }
 .select__label {
-  font-family: Roboto, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;

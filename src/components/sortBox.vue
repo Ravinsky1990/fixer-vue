@@ -19,10 +19,10 @@
 export default {
   data() {
     return {
-      priceColor: "#0ad69c",
-      ratingColor: "white"
+      priceColor: '#0ad69c',
+      ratingColor: 'white',
     };
-  }
+  },
 };
 </script>
 

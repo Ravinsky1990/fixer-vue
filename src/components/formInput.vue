@@ -13,8 +13,8 @@ export default {
   props: {
     placeholder: String,
     styles: Object,
-    value: String
-  }
+    value: String,
+  },
 };
 </script>
 
