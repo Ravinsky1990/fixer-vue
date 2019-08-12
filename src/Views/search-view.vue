@@ -47,9 +47,9 @@ export default {
     };
   },
   computed: {
-    users(){
-      return [...this.$store.state.users]
-    }
+    users() {
+      return [...this.$store.state.users];
+    },
   },
   components: {
     formSelect,
@@ -58,7 +58,7 @@ export default {
     sortBox,
     userItem,
   },
-  mounted(){
+  mounted() {
     this.$store.dispatch('fetchUsers');
   },
 };

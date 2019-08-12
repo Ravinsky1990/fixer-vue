@@ -19,11 +19,11 @@ export const store = new Vuex.Store({
     },
   },
   actions: {
-    fetchUsers({ commit }){
+    fetchUsers({ commit }) {
       axios.get('https://fixer-api.herokuapp.com/users')
-      .then((res)=>{
-        commit('addUsersToStore', res.data.users)
-      })
-    }
-  }
+        .then((res) => {
+          commit('addUsersToStore', res.data.users);
+        });
+    },
+  },
 });

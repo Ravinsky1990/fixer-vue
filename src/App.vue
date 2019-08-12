@@ -1,15 +1,16 @@
 <template>
-  <dashboard></dashboard>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import dashboard from './Views/dashboard.vue';
+// import dashboard from './Views/dashboard.vue';
+// import auth from './Views/auth.vue'
 
 export default {
   name: 'app',
-  components: {
-    dashboard,
-  },
+  components: {},
 };
 </script>
 
@@ -51,20 +52,21 @@ blockquote, q {
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
-    content: none;
+  content: '';
+  content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 body{
-    background-color: #F9FAFC;
+  background-color: #F9FAFC;
+  height: 100vh;
 }
 
 a{
-    text-decoration: none;
+  text-decoration: none;
 }
 ::-webkit-scrollbar{
     width: 6px;
