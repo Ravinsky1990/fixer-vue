@@ -11,18 +11,14 @@
       </div>
     </header>
     <main>
-      <sighUp></sighUp>
+      <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
-import sighUp from '../components/sigh-up.vue';
-
 export default {
-  components: {
-    sighUp,
-  },
+  
 };
 
 </script>
@@ -35,7 +31,7 @@ export default {
   padding-left: 142px;
   padding-right: 142px;
   padding-top: 21px;
-  margin-bottom: 160px;
+  margin-bottom: 90px;
 }
 .fixerLogo {
   display: flex;

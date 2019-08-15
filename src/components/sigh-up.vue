@@ -8,7 +8,7 @@
     <input type="text" placeholder="Username" class="formInput">
     <input type="email" placeholder="Eimail" class="formInput">
     <div class="signInForm__btnWrap">
-      <button class="formBtn">Get started</button>
+      <button type='button' class="formBtn">Get started</button>
     </div>
   </form>
 </template>

@@ -30,11 +30,11 @@
 
 <script>
 import axios from 'axios';
-import formSelect from '../components/formSelect.vue';
-import formInput from '../components/formInput.vue';
-import appBtn from '../components/appBtn.vue';
-import sortBox from '../components/sortBox.vue';
-import userItem from '../components/userItem.vue';
+import formSelect from './formSelect.vue';
+import formInput from './formInput.vue';
+import appBtn from './appBtn.vue';
+import sortBox from './sortBox.vue';
+import userItem from './userItem.vue';
 
 export default {
   data() {
