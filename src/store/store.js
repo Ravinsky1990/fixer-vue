@@ -12,15 +12,24 @@ export const store = new Vuex.Store({
       text: '',
       sort: 'price',
     },
+    sighUpObj: {
+      firstName: '',
+      lastName: '',
+      userName: '',
+      email: '',
+    },
   },
   mutations: {
     addUsersToStore(state, users) {
       state.users = [...users];
     },
+    submitSighUpForm(state, FormPayload) {
+      state.sighUpObj = { ...FormPayload };
+    },
   },
   actions: {
     fetchUsers({ commit }) {
-      axios.get('https://fixer-api.herokuapp.com/users')
+      axios.get()
         .then((res) => {
           commit('addUsersToStore', res.data.users);
         });

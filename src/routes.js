@@ -14,6 +14,12 @@ const routes = [
       {
         path: 'create-password',
         component: createPassword,
+        beforeEnter: (to, from, next)=> {
+          if(to.query.available){
+            next();
+          }
+          next(false)
+        }
       },
     ],
   },

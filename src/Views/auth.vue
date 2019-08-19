@@ -6,8 +6,8 @@
         <img src="../assets/fixer.png" alt="fixer" class="fixerLogo__fixer">
       </div>
       <div class="signUpLink">
-        <span class="signUpLink__dontHave">Already have an account?</span>
-        <a href="#" class="signUpLink__link">Log in</a>
+        <span class="signUpLink__dontHave">{{topLineLink.title}}</span>
+        <router-link :to="topLineLink.link" >{{topLineLink.val}}</router-link>
       </div>
     </header>
     <main>
@@ -18,40 +18,38 @@
 
 <script>
 export default {
-  
+  computed: {
+    topLineLink() {
+      if (this.$route.path === '/auth/sigh-up') {
+        return {
+          title: 'Already have an account?',
+          link: '/auth/sigh-in',
+          val: 'Log in',
+        };
+      }
+      if (this.$route.path === '/auth/create-password') {
+        return {
+          title: 'Do not have an account?',
+          link: '/auth/sigh-up',
+          val: 'Sigh up',
+        };
+      }
+      if (this.$route.path === '/auth/sigh-in') {
+        return {
+          title: 'Do not have an account?',
+          link: '/auth/sigh-up',
+          val: 'Sigh up',
+        };
+      }
+    },
+  },
 };
 
 </script>
 
-<style>
-.topLineForm {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 142px;
-  padding-right: 142px;
-  padding-top: 21px;
-  margin-bottom: 90px;
-}
-.fixerLogo {
-  display: flex;
-  align-items: center;
-}
-.fixerLogo__arrow{
-  margin-right: 13px;
-}
-.fixerLogo__fixer{
-  width: 90px;
-}
-.signUpLink__dontHave{
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  color: #222428;
-}
-.signUpLink__link{
+<style lang='scss' scoped>
+@import '../styles/auth.scss';
+a{
   color: #2A74DB;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -61,4 +59,8 @@ export default {
   text-decoration: none;
   margin-left: 6px;
 }
+// .sigh-up-transition-enter{
+//   opacity: 0;
+// }
+
 </style>

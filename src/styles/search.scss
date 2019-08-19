@@ -1,0 +1,45 @@
+.results {
+  flex-grow: 1;
+  padding-left: 40px;
+}
+.sortBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 33px;
+}
+.sortBox__showLink {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #01134e;
+  cursor: pointer;
+}
+.searchBox {
+  display: flex;
+  background-color: #fff;
+  margin-left: 142px;
+  margin-top: 57px;
+  padding: 41px 60px 46px 44px;
+}
+.searchResults {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 454px;
+  overflow-y: scroll;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.selectGroup {
+  flex-basis: 300px;
+  border-right: 1px solid #e7eaf5;
+  flex-shrink: 0;
+}
+div.input {
+  max-width: 250px;
+  margin-bottom: 20px;
+}

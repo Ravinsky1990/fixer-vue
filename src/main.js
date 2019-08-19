@@ -1,14 +1,16 @@
 import Vue from 'vue';
+import VeeValidate from 'vee-validate';
+import VueRouter from 'vue-router';
 import App from './App.vue';
 import 'vue-select/dist/vue-select.css';
 import { store } from './store/store';
-import VueRouter from 'vue-router';
 import routes from './routes';
 
 Vue.use(VueRouter);
 const router = new VueRouter({
   routes,
 });
+Vue.use(VeeValidate);
 
 Vue.config.productionTip = false;
 
