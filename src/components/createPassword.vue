@@ -1,5 +1,5 @@
 <template>
-  <form action="#" class="signInForm signInForm_smallPadding">
+  <form action="#" class="signInForm">
     <h1 class="signInForm__title signInForm__title__dark">Complete your account</h1>
     <input type="password"
       name="password"
@@ -78,7 +78,7 @@ export default {
         //send req
         api.post('/api/accounts/sigh-up', payload)
         .then((res)=>{
-          console.log(res)
+          this.$router.push('/auth/sigh-in')
         })
         .catch((err)=>{
           console.log(err.response.data)

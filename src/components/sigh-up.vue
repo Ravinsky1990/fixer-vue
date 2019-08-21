@@ -1,5 +1,6 @@
 <template>
   <form action="#" class="signInForm">
+    <component v-bind:is='preloaderSwitcher'></component>
     <h1 class="signInForm__title">Sign up</h1>
     <div class="dubleInput">
       <input v-validate="'required|min:3'"
@@ -38,8 +39,12 @@
 </template>
 
 <script>
-import api from '../shared/services/api.js';  
+import api from '../shared/services/api.js'; 
+import preloader from '../components/preloader' 
 export default{
+  components: {
+    preloader
+  },
   data() {
     return {
       form: {
@@ -50,7 +55,8 @@ export default{
       },
       isValid: false,
       existEmail: null,
-      existUserName: null
+      existUserName: null,
+      preloaderSwitcher: null,
     };
   },
   methods: {
@@ -64,25 +70,29 @@ export default{
         }
       };
       if (this.isValid) {
+        this.preloaderSwitcher = 'preloader'
         api.post('/api/accounts/user', {email: this.form.email, userName: this.form.userName})
         .then((res)=>{
           if(res.data.result === 'ok'){
           this.$store.commit('submitSighUpForm', this.form);
           this.$router.push({ path: '/auth/create-password', query: { available: true} });
           }else if(res.data.result === 'This user-name exist!'){
-            this.existUserName = res.data.result
+            this.existUserName = res.data.result;
+            this.preloaderSwitcher = null;
           }else if(res.data.result === 'This user-email exist!'){
-            this.existEmail = res.data.result
+            this.existEmail = res.data.result;
+            this.preloaderSwitcher = null;
           }else if (res.data.result === 'This user-name and email already exist!'){
             this.existUserName = 'This user-name exist!';
-            this.existEmail = 'This user-email exist!'
+            this.existEmail = 'This user-email exist!';
+            this.preloaderSwitcher = null;
           }else{
-            this.existUserName = null;
-            this.existEmail = null
+            // this.existUserName = null;
+            // this.existEmail = null
           }
         })
         .catch((err)=>{
-          
+          console.log(err);
         })
       }
     },

@@ -1,6 +1,7 @@
 import auth from './Views/auth.vue';
 import sighUp from './components/sigh-up.vue';
 import createPassword from './components/createPassword.vue';
+import sighIn from './components/sigh-in.vue';
 
 const routes = [
   {
@@ -14,12 +15,16 @@ const routes = [
       {
         path: 'create-password',
         component: createPassword,
-        beforeEnter: (to, from, next)=> {
-          if(to.query.available){
+        beforeEnter: (to, from, next) => {
+          if (to.query.available) {
             next();
           }
-          next(false)
-        }
+          next(false);
+        },
+      },
+      {
+        path: 'sigh-in',
+        component: sighIn,
       },
     ],
   },
