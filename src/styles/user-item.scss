@@ -13,6 +13,8 @@
 }
 .resItem__avatar img {
   width: 74px;
+  height: 74px;
+  object-fit: cover;
 }
 .resItem__name {
   display: flex;

@@ -2,7 +2,7 @@
   <div>
     <sideBar></sideBar>
     <topLine></topLine>
-    <searchView></searchView>
+    <router-view></router-view>
   </div>
 </template>
 

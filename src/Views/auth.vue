@@ -11,7 +11,9 @@
       </div>
     </header>
     <main>
-      <router-view></router-view>
+      <transition name='authAnimation'>
+        <router-view></router-view>
+      </transition>
     </main>
   </div>
 </template>
@@ -59,8 +61,11 @@ a{
   text-decoration: none;
   margin-left: 6px;
 }
-// .sigh-up-transition-enter{
-//   opacity: 0;
-// }
+.authAnimation-enter{
+  opacity: 0;
+}
+.authAnimation-enter-active{
+  transition: opacity .8s;
+}
 
 </style>

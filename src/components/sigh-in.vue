@@ -61,6 +61,7 @@ export default {
         .then((res)=>{
           this.preloaderSwitcher = null;
           this.deniedMsg = null;
+          //set token
           this.$router.push('/dashboard/search');
         })
         .catch((err)=>{

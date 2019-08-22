@@ -78,6 +78,7 @@ export default {
         //send req
         api.post('/api/accounts/sigh-up', payload)
         .then((res)=>{
+          this.$store.commit('clearSighUpFormInfo');
           this.$router.push('/auth/sigh-in')
         })
         .catch((err)=>{

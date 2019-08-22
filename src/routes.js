@@ -2,6 +2,8 @@ import auth from './Views/auth.vue';
 import sighUp from './components/sigh-up.vue';
 import createPassword from './components/createPassword.vue';
 import sighIn from './components/sigh-in.vue';
+import dashboard from './Views/dashboard.vue';
+import search from './components/search.vue';
 
 const routes = [
   {
@@ -25,6 +27,16 @@ const routes = [
       {
         path: 'sigh-in',
         component: sighIn,
+      },
+    ],
+  },
+  {
+    path: '/dashboard',
+    component: dashboard,
+    children: [
+      {
+        path: 'search',
+        component: search,
       },
     ],
   },

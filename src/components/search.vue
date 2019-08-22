@@ -4,11 +4,17 @@
       <formSelect label="Location" placeholder="Location" :options="locationOptions"></formSelect>
       <div class="input">
         <label for class="select__label">Search</label>
-        <!-- <formInput placeholder="Name or surname" class="inputSyles" :styles="inputStyles"></formInput> -->
+        <input type="text"
+          placeholder="Name or Surname"
+          class="formInput formInput_noMargin"
+          @input="setSearchData('text', $event)"
+          >
       </div>
-      <formSelect label="Category" placeholder="Category" :options="categoryOptions"></formSelect>
+      <formSelect label="Category" placeholder="Category" :options="g"></formSelect>
       <formSelect label="Service" placeholder="Service" :options="serviceOptions"></formSelect>
-      <!-- <appBtn :styles="btnStyles" title="search"></appBtn> -->
+      <div class="signInForm__btnWrap formBtn_search">
+        <button class="formBtn formBtn_fullWidth" type='button'>Search</button>
+      </div>
     </form>
     <section class="results">
       <div class="sortBox">
@@ -29,10 +35,7 @@
 </template>
 
 <script>
-import axios from 'axios';
 import formSelect from './formSelect.vue';
-// import formInput from './formInput.vue';
-// import appBtn from './appBtn.vue';
 import sortBox from './sortBox.vue';
 import userItem from './userItem.vue';
 
@@ -40,28 +43,43 @@ export default {
   data() {
     return {
       locationOptions: ['Canada', 'United States'],
-      categoryOptions: ['Front-end', 'Back-end'],
       serviceOptions: ['servise1', 'servise2'],
     };
+  },
+  methods: {
+    setSearchData(type, ev){
+      this.$store.commit('setQuery', {type, value: ev.target.value})
+    }
   },
   computed: {
     users() {
       return [...this.$store.state.users];
     },
+    serchString(){
+      return 
+    }
   },
   components: {
     formSelect,
-    // formInput,
-    // appBtn,
     sortBox,
     userItem,
   },
   mounted() {
-    this.$store.dispatch('fetchUsers');
+    // this.$store.dispatch('fetchUsers');
   },
 };
 </script>
 
 <style lang="scss">
 @import '../styles/search.scss';
+.formInput_noMargin{
+  margin-top: 0px;
+}
+.formBtn_search{
+  max-width: 250px;
+}
+.formBtn_fullWidth{
+  width: 100%;
+  display: inline-block;
+}
 </style>
