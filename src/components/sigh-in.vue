@@ -30,22 +30,23 @@
 
 <script>
 import preloader from '../components/preloader';
-import api from '../shared/services/api'
+import api from '../shared/services/api';
+
 export default {
   components: {
-    preloader
+    preloader,
   },
-  data(){
+  data() {
     return {
       email: '',
       password: '',
       preloaderSwitcher: null,
       isValid: false,
       deniedMsg: null,
-    }
+    };
   },
   methods: {
-    submit(){
+    submit() {
       for (const field in this.fields) {
         if (this.fields[field].valid) {
           this.isValid = this.fields[field].valid;
@@ -53,25 +54,25 @@ export default {
           this.isValid = false;
           break;
         }
-      };
-
-      if(this.isValid){
-        this.preloaderSwitcher = 'preloader';
-        api.post('/api/accounts/sigh-in', {email: this.email, password: this.password})
-        .then((res)=>{
-          this.preloaderSwitcher = null;
-          this.deniedMsg = null;
-          //set token
-          this.$router.push('/dashboard/search');
-        })
-        .catch((err)=>{
-          this.preloaderSwitcher = null;
-          this.deniedMsg = err.response.data.error;
-        })
       }
-    }
-  }
-}
+
+      if (this.isValid) {
+        this.preloaderSwitcher = 'preloader';
+        api.post('/api/accounts/sigh-in', { email: this.email, password: this.password })
+          .then((res) => {
+            console.log(res.data);
+            localStorage.setItem('fixerToken', res.data.token);
+            localStorage.setItem('userId', res.data.user.id);
+            this.$router.push('/dashboard/search');
+          })
+          .catch((err) => {
+            this.preloaderSwitcher = null;
+            this.deniedMsg = err.response.data.error;
+          });
+      }
+    },
+  },
+};
 </script>
 
 <style lang='scss' scoped>

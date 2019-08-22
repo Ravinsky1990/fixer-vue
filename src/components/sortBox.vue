@@ -16,28 +16,29 @@
 </template>
 
 <script>
-import api from '../shared/services/api'
+import api from '../shared/services/api';
+
 export default {
   data() {
     return {
       price: true,
-      rating: false
+      rating: false,
     };
   },
   methods: {
-    switchButtons: async function(type){
-      if(type === 'price'){
+    async switchButtons(type) {
+      if (type === 'price') {
         this.price = true,
-        this.rating = false
-      }else{
+        this.rating = false;
+      } else {
         this.price = false,
-        this.rating = true
+        this.rating = true;
       }
-      const query = this.$store.state.query
-      const users = await api.post('/api/accounts/users', {...query, sort: type});
-      console.log(users)
-    }
-  }
+      const query = this.$store.state.query;
+      const users = await api.post('/api/accounts/users', { ...query, sort: type });
+      console.log(users);
+    },
+  },
 };
 </script>
 

@@ -3,7 +3,7 @@ import { getToken } from './getToken';
 
 const instance = axios.create({
   baseURL: 'https://fixer-api.herokuapp.com',
-  headers: { 'Authorization': `JWT ${getToken()}` },
+  headers: { Authorization: `JWT ${getToken()}` },
 });
 
 

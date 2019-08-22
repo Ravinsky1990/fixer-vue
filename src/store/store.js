@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import api from '../shared/services/api';
+// import api from '../shared/services/api';
 
 
 Vue.use(Vuex);

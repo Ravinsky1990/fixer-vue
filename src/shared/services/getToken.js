@@ -1,8 +1,7 @@
 export const getToken = () => {
-    const token = localStorage.getItem('token');
-    if(token){
-        return token
-    }else{
-        return 'Not authorized'
-    }
-}
+  const token = localStorage.getItem('token');
+  if (token) {
+    return token;
+  }
+  return 'Not authorized';
+};

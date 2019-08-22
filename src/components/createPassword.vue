@@ -57,7 +57,7 @@ export default {
       },
       service: false,
       policy: false,
-      customErrorMsg: null
+      customErrorMsg: null,
     };
   },
   methods: {
@@ -67,40 +67,39 @@ export default {
     checkPolicy() {
       this.policy = !this.policy;
     },
-    submit(){
-      if(this.errors.items.length == 0 & this.service & this.policy){
+    submit() {
+      if (this.errors.items.length == 0 & this.service & this.policy) {
         const payload = {
           ...this.$store.state.sighUpObj,
-          password: this.password.value
+          password: this.password.value,
         };
         this.customErrorMsg = null;
 
-        //send req
+        // send req
         api.post('/api/accounts/sigh-up', payload)
-        .then((res)=>{
-          this.$store.commit('clearSighUpFormInfo');
-          this.$router.push('/auth/sigh-in')
-        })
-        .catch((err)=>{
-          console.log(err.response.data)
-        })
-
-      }else{
-        this.customErrorMsg = 'You did not fill out the form!'
+          .then((res) => {
+            this.$store.commit('clearSighUpFormInfo');
+            this.$router.push('/auth/sigh-in');
+          })
+          .catch((err) => {
+            console.log(err.response.data);
+          });
+      } else {
+        this.customErrorMsg = 'You did not fill out the form!';
       }
-    }
+    },
   },
   computed: {
-    passwordBar_1(){
-      return this.password.value.length >= 1
+    passwordBar_1() {
+      return this.password.value.length >= 1;
     },
-    passwordBar_2(){
-      return this.password.value.length >= 2
+    passwordBar_2() {
+      return this.password.value.length >= 2;
     },
-    passwordBar_3(){
-      return this.password.value.length >= 3
-    }
-  }
+    passwordBar_3() {
+      return this.password.value.length >= 3;
+    },
+  },
 };
 </script>
 

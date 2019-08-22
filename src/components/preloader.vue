@@ -15,8 +15,8 @@
 
 <script>
 export default {
-  
-}
+
+};
 </script>
 
 <style lang='scss'>
@@ -151,7 +151,6 @@ export default {
 		-webkit-animation-delay:0.96s;
 		-moz-animation-delay:0.96s;
 }
-
 
 
 @keyframes bounce_circularG{

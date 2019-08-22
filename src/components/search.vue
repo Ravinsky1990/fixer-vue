@@ -47,17 +47,17 @@ export default {
     };
   },
   methods: {
-    setSearchData(type, ev){
-      this.$store.commit('setQuery', {type, value: ev.target.value})
-    }
+    setSearchData(type, ev) {
+      this.$store.commit('setQuery', { type, value: ev.target.value });
+    },
   },
   computed: {
     users() {
       return [...this.$store.state.users];
     },
-    serchString(){
-      return 
-    }
+    serchString() {
+
+    },
   },
   components: {
     formSelect,
