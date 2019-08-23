@@ -75,7 +75,7 @@ export default{
         api.post('/api/accounts/user', { email: this.form.email, userName: this.form.userName })
           .then((res) => {
             if (res.data.result === 'ok') {
-              this.$store.commit('submitSighUpForm', this.form);
+              this.$store.commit('submitSignUpForm', this.form);
               this.$router.push({ path: '/auth/create-password', query: { available: true } });
             } else if (res.data.result === 'This user-name exist!') {
               this.existUserName = res.data.result;

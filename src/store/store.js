@@ -12,10 +12,10 @@ export const store = new Vuex.Store({
     users: [],
     query: {
       category: '',
-      text: '',
+      keyword: '',
       sort: 'price',
     },
-    sighUpObj: {
+    signUpObj: {
       firstName: '',
       lastName: '',
       userName: '',
@@ -26,18 +26,14 @@ export const store = new Vuex.Store({
     addUsersToStore(state, users) {
       state.users = [...users];
     },
-    submitSighUpForm(state, FormPayload) {
+    submitSignUpForm(state, FormPayload) {
       state.sighUpObj = { ...FormPayload };
     },
-    clearSighUpFormInfo(state) {
+    clearSignUpFormInfo(state) {
       state.sighUpObj = {};
     },
     setQuery(state, queryPayload) {
-      const clearVal = queryPayload.value
-        .split('')
-        .filter(chanck => chanck !== ' ')
-        .join('');
-      state.query = { ...state.query, [queryPayload.type]: clearVal };
+      state.query = { ...state.query, [queryPayload.type]: queryPayload.value };
     },
   },
   actions: {

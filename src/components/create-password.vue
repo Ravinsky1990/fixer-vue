@@ -70,7 +70,7 @@ export default {
     submit() {
       if (this.errors.items.length == 0 & this.service & this.policy) {
         const payload = {
-          ...this.$store.state.sighUpObj,
+          ...this.$store.state.signUpObj,
           password: this.password.value,
         };
         this.customErrorMsg = null;
@@ -78,7 +78,7 @@ export default {
         // send req
         api.post('/api/accounts/sigh-up', payload)
           .then((res) => {
-            this.$store.commit('clearSighUpFormInfo');
+            this.$store.commit('clearSignUpFormInfo');
             this.$router.push('/auth/sigh-in');
           })
           .catch((err) => {
@@ -105,7 +105,7 @@ export default {
 
 <style lanf='scss'>
 
-@import '../styles/createPassword.scss';
+@import '../styles/create-password.scss';
 .progressBar span{
   display: block;
   background: #FF6359;

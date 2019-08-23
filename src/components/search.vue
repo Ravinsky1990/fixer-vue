@@ -7,7 +7,7 @@
         <input type="text"
           placeholder="Name or Surname"
           class="formInput formInput_noMargin"
-          @input="setSearchData('text', $event)"
+          @input="setSearchData('keyword', $event)"
           >
       </div>
       <formSelect label="Category" placeholder="Category" :options="g"></formSelect>

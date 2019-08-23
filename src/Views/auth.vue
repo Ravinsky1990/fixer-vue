@@ -22,25 +22,25 @@
 export default {
   computed: {
     topLineLink() {
-      if (this.$route.path === '/auth/sigh-up') {
+      if (this.$route.path === '/auth/sign-up') {
         return {
           title: 'Already have an account?',
-          link: '/auth/sigh-in',
+          link: '/auth/sign-in',
           val: 'Log in',
         };
       }
       if (this.$route.path === '/auth/create-password') {
         return {
           title: 'Do not have an account?',
-          link: '/auth/sigh-up',
-          val: 'Sigh up',
+          link: '/auth/sign-up',
+          val: 'Sign up',
         };
       }
-      if (this.$route.path === '/auth/sigh-in') {
+      if (this.$route.path === '/auth/sign-in') {
         return {
           title: 'Do not have an account?',
-          link: '/auth/sigh-up',
-          val: 'Sigh up',
+          link: '/auth/sign-up',
+          val: 'Sign up',
         };
       }
     },

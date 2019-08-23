@@ -1,7 +1,7 @@
 import auth from './Views/auth.vue';
-import sighUp from './components/sigh-up.vue';
-import createPassword from './components/createPassword.vue';
-import sighIn from './components/sigh-in.vue';
+import signUp from './components/sign-up.vue';
+import createPassword from './components/create-password.vue';
+import signIn from './components/sign-in.vue';
 import dashboard from './Views/dashboard.vue';
 import search from './components/search.vue';
 
@@ -11,8 +11,8 @@ const routes = [
     component: auth,
     children: [
       {
-        path: 'sigh-up',
-        component: sighUp,
+        path: 'sign-up',
+        component: signUp,
       },
       {
         path: 'create-password',
@@ -25,8 +25,8 @@ const routes = [
         },
       },
       {
-        path: 'sigh-in',
-        component: sighIn,
+        path: 'sign-in',
+        component: signIn,
       },
     ],
   },
