@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import api from '../shared/services/api';
+import Api from '../shared/services/api';
 
 export default {
   data() {
@@ -76,10 +76,10 @@ export default {
         this.customErrorMsg = null;
 
         // send req
-        api.post('/api/accounts/sigh-up', payload)
+        Api.post('/api/accounts/sign-up', payload)
           .then((res) => {
             this.$store.commit('clearSignUpFormInfo');
-            this.$router.push('/auth/sigh-in');
+            this.$router.push('/auth/sign-in');
           })
           .catch((err) => {
             console.log(err.response.data);

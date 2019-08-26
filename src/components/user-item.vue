@@ -1,12 +1,12 @@
 <template>
   <figure class="resItem">
     <div class="resItem__avatar">
-      <img src="../assets/user_1.png" alt="avatar">
+      <img :src="user.photo" alt="avatar">
     </div>
     <div class="resItem__content">
       <div class="resItem__name">
         <span>{{user.firstName}} {{user.lastName}}</span>
-        <img src="../assets/golden-star.svg" alt="goldenstar">
+        <img v-bind:src='ratingStar' alt="star">
       </div>
       <div class="resItem__location">
         <img src="../assets/map-marker.svg" alt="map">
@@ -29,10 +29,21 @@
 </template>
 
 <script>
+import golden from '../assets/golden-star.svg';
+import silver from '../assets/silver.svg';
 export default {
   props: {
     user: Object,
   },
+  computed: {
+    ratingStar(){
+      if(this.user.rating){
+        return this.user.rating > 15 ? golden : silver
+      }else{
+        return golden
+      }
+    }
+  }
 };
 </script>
 

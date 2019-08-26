@@ -1,5 +1,5 @@
 export const getToken = () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('fixerToken');
   if (token) {
     return token;
   }

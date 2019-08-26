@@ -7,6 +7,7 @@
   border-radius: 2px;
   cursor: pointer;
   margin-bottom: 20px;
+  flex-basis: 300px;
 }
 .resItem__avatar {
   margin-right: 14px;
@@ -15,6 +16,7 @@
   width: 74px;
   height: 74px;
   object-fit: cover;
+  border-radius: 50%;
 }
 .resItem__name {
   display: flex;

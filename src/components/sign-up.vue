@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import api from '../shared/services/api.js';
+import Api from '../shared/services/api.js';
 import preloader from '../components/preloader';
 
 export default{
@@ -72,7 +72,7 @@ export default{
       }
       if (this.isValid) {
         this.preloaderSwitcher = 'preloader';
-        api.post('/api/accounts/user', { email: this.form.email, userName: this.form.userName })
+        Api.post('/api/accounts/check-user', { email: this.form.email, userName: this.form.userName })
           .then((res) => {
             if (res.data.result === 'ok') {
               this.$store.commit('submitSignUpForm', this.form);
@@ -87,13 +87,10 @@ export default{
               this.existUserName = 'This user-name exist!';
               this.existEmail = 'This user-email exist!';
               this.preloaderSwitcher = null;
-            } else {
-            // this.existUserName = null;
-            // this.existEmail = null
             }
           })
           .catch((err) => {
-            console.log(err);
+            
           });
       }
     },

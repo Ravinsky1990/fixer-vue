@@ -58,9 +58,8 @@ export default {
 
       if (this.isValid) {
         this.preloaderSwitcher = 'preloader';
-        api.post('/api/accounts/sigh-in', { email: this.email, password: this.password })
+        api.post('/api/accounts/sign-in', { email: this.email, password: this.password })
           .then((res) => {
-            console.log(res.data);
             localStorage.setItem('fixerToken', res.data.token);
             localStorage.setItem('userId', res.data.user.id);
             this.$router.push('/dashboard/search');

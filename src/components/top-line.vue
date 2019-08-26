@@ -23,7 +23,7 @@
       </li>
     </ul>
     <div class="current-user">
-      <span class="current-user__name">Faruh Bernandez</span>
+      <span class="current-user__name">{{fullName}}</span>
       <a href="#">
         <img src="../assets/black-down-Shevron.svg" alt="shevron">
       </a>
@@ -32,7 +32,27 @@
 </template>
 
 <script>
-export default {};
+import Api from '../shared/services/api';
+
+export default {
+  data() {
+    return {
+      user: {},
+    };
+  },
+  computed: {
+    fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`;
+    },
+  },
+  mounted() {
+    Api.setHeader();
+    Api.get('/api/accounts/user')
+      .then((res) => {
+        this.user = res.data.user;
+      });
+  },
+};
 </script>
 
 <style lang='scss'>

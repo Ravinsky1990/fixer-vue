@@ -1,0 +1,137 @@
+label {
+  display: block;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #546087;
+  margin-bottom: 4px;
+}
+.info {
+  margin-left: 122px;
+  margin: 42px auto;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 30px rgba(153, 163, 174, 0.06);
+  padding-left: 60px;
+  padding-top: 57px;
+  min-height: 460px;
+}
+.tabs{
+  display: flex;
+  width: 100%;
+}
+.tabs__personal{
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #01134E;
+  padding-bottom: 19px;
+  text-align: center;
+  flex-basis: 400px;
+  cursor: pointer;
+}
+.tabsBorderBlue{
+  border-bottom: 2px solid #2A74DB;
+}
+.tabsGrey {
+  border-bottom: 2px solid #E9E9E9;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #CCD0DC;
+}
+.personalInformation{
+  display: flex;
+  margin-top: 50px;
+}
+.profileFoto {
+  text-align: center;
+  margin-right: 40px;
+}
+.profileFoto__img {
+  width: 134px;
+  height: 136px;
+  display: block;
+  margin-bottom: 7px;
+  object-fit: cover;
+}
+.profileFoto__changeLink {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #35373B;
+}
+.content_1{
+  flex-basis: 280px;
+  margin-right: 33px;
+}
+.gender {
+  margin-top: 29px; 
+}
+.formInput_personalInfo{
+  margin-top: 4px;
+}
+.v-select .vs__dropdown-toggle {
+  border: 2px solid #f2f2f2;
+  height: 41px;
+  cursor: pointer;
+  background: #fcfcfc;
+}
+
+.v-select .vs__search {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #35373b;
+  cursor: pointer;
+}
+.v-select .vs__actions svg {
+  fill: #01134e;
+  cursor: pointer;
+}
+.v-select .vs__actions svg.vs__open-indicator path {
+  d: path(
+    "M4.39626 5.15214L0.683169 1.38059C0.44685 1.14068 0.44685 0.751695 0.683169 0.511895C0.919278 0.272077 1.30222 0.272077 1.53831 0.511895L4.82383 3.84913L8.10923 0.511992C8.34543 0.272174 8.72834 0.272174 8.96445 0.511992C9.20065 0.751811 9.20065 1.14077 8.96445 1.38069L5.2513 5.15224C5.13319 5.27214 4.97856 5.33203 4.82385 5.33203C4.66906 5.33203 4.51431 5.27203 4.39626 5.15214Z"
+  );
+}
+
+.v-select .vs__dropdown-menu {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #35373b;
+}
+.v-select .vs__selected {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #35373b;
+}
+.country {
+  margin-top: 29px;
+}
+.content_2{
+  flex-basis: 280px;
+}
+.mobileFone{
+  margin-top: 29px;
+}

@@ -1,10 +1,39 @@
+/* eslint-disable class-methods-use-this */
 import axios from 'axios';
 import { getToken } from './getToken';
 
-const instance = axios.create({
-  baseURL: 'https://fixer-api.herokuapp.com',
-  headers: { Authorization: `JWT ${getToken()}` },
-});
+class Api {
+  init(baseURL) {
+    axios.defaults.baseURL = baseURL;
+  }
 
+  setHeader() {
+    axios.defaults.headers.common.Authorization = `JWT ${getToken()}`;
+  }
 
-export default instance;
+  removeHeader() {
+    axios.defaults.headers.common = {};
+  }
+
+  get(resource) {
+    return axios.get(resource);
+  }
+
+  post(resource, data) {
+    return axios.post(resource, data);
+  }
+
+  put(resource, data) {
+    return axios.put(resource, data);
+  }
+
+  delete(resource) {
+    return axios.delete(resource);
+  }
+}
+
+const FixerApi = new Api();
+
+FixerApi.init('https://fixer-api.herokuapp.com/');
+
+export default FixerApi;

@@ -4,6 +4,7 @@ import createPassword from './components/create-password.vue';
 import signIn from './components/sign-in.vue';
 import dashboard from './Views/dashboard.vue';
 import search from './components/search.vue';
+import account from './components/account.vue'
 
 const routes = [
   {
@@ -18,7 +19,7 @@ const routes = [
         path: 'create-password',
         component: createPassword,
         beforeEnter: (to, from, next) => {
-          if (to.query.available) {
+          if (from.fullPath === '/auth/sign-up') {
             next();
           }
           next(false);
@@ -38,6 +39,10 @@ const routes = [
         path: 'search',
         component: search,
       },
+      {
+        path: 'account',
+        component: account
+      }
     ],
   },
 ];

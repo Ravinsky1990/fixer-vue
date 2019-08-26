@@ -2,7 +2,7 @@
   <div>
     <div class="select">
       <label for class="select__label">{{label}}</label>
-      <vSelect :placeholder="placeholder" :options="options"></vSelect>
+      <vSelect @input='selected' :placeholder="placeholder" :label="selectLabel" :options="options"></vSelect>
     </div>
   </div>
 </template>
@@ -13,12 +13,23 @@ import vSelect from 'vue-select';
 export default {
   props: {
     label: String,
+    selectLabel: String,
     options: Array,
     placeholder: String,
   },
   components: {
     vSelect,
   },
+  methods: {
+    selected(ev){
+      if(ev !== null){
+        this.$store.commit('setQuery', {type: 'category', value: ev._id})
+      }else{
+        this.$store.commit('setQuery', {type: 'category', value: ''})
+      }
+      
+    }
+  }
 };
 </script>
 

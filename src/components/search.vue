@@ -1,4 +1,4 @@
-<template>
+_<template>
   <main class="searchBox">
     <form class="selectGroup">
       <formSelect label="Location" placeholder="Location" :options="locationOptions"></formSelect>
@@ -7,13 +7,19 @@
         <input type="text"
           placeholder="Name or Surname"
           class="formInput formInput_noMargin"
-          @input="setSearchData('keyword', $event)"
+          @input="setSearchQuery('keyword', $event)"
+          @keyup.enter="submit"
           >
       </div>
-      <formSelect label="Category" placeholder="Category" :options="g"></formSelect>
+      <formSelect
+        selectLabel="name"
+        label="Category"
+        placeholder="Category"
+        :options="categoriesForSelect">
+      </formSelect>
       <formSelect label="Service" placeholder="Service" :options="serviceOptions"></formSelect>
       <div class="signInForm__btnWrap formBtn_search">
-        <button class="formBtn formBtn_fullWidth" type='button'>Search</button>
+        <button @click='submit' class="formBtn formBtn_fullWidth" type='button'>Search</button>
       </div>
     </form>
     <section class="results">
@@ -24,10 +30,11 @@
         <sortBox></sortBox>
       </div>
       <div class="searchResults">
+        <!-- <div v-if='users.length == 0' class="noResults">No results</div> -->
         <userItem
         v-for='user in users'
         v-bind:user = 'user'
-        v-bind:key="user.id"
+        v-bind:key="user._id"
         ></userItem>
       </div>
     </section>
@@ -35,28 +42,33 @@
 </template>
 
 <script>
-import formSelect from './formSelect.vue';
-import sortBox from './sortBox.vue';
-import userItem from './userItem.vue';
+import formSelect from './form-select.vue';
+import sortBox from './sort-box.vue';
+import userItem from './user-item.vue';
+import Api from '../shared/services/api'
 
 export default {
   data() {
     return {
       locationOptions: ['Canada', 'United States'],
       serviceOptions: ['servise1', 'servise2'],
+      categoriesForSelect: [],
     };
   },
   methods: {
-    setSearchData(type, ev) {
+    setSearchQuery(type, ev) {
       this.$store.commit('setQuery', { type, value: ev.target.value });
     },
+    submit(){
+      this.$store.dispatch('fetchUsers');
+    },
+    setSelect(){
+      console.log("hi")
+    }
   },
   computed: {
     users() {
       return [...this.$store.state.users];
-    },
-    serchString() {
-
     },
   },
   components: {
@@ -64,8 +76,10 @@ export default {
     sortBox,
     userItem,
   },
-  mounted() {
-    // this.$store.dispatch('fetchUsers');
+  mounted: async function() {
+    const categories = await Api.get('/api/accounts/categories');
+    this.categoriesForSelect = categories.data.categories
+    this.$store.dispatch('fetchUsers');
   },
 };
 </script>
@@ -81,5 +95,17 @@ export default {
 .formBtn_fullWidth{
   width: 100%;
   display: inline-block;
+}
+.noResults{
+  padding-top: 30px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #01134e;
+  width: 100%;
 }
 </style>

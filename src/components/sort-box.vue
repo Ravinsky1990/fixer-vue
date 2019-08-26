@@ -26,17 +26,16 @@ export default {
     };
   },
   methods: {
-    async switchButtons(type) {
-      if (type === 'price') {
+    async switchButtons(value) {
+      if (value === 'price') {
         this.price = true,
         this.rating = false;
       } else {
         this.price = false,
         this.rating = true;
       }
-      const query = this.$store.state.query;
-      const users = await api.post('/api/accounts/users', { ...query, sort: type });
-      console.log(users);
+      this.$store.commit('setQuery', { type: 'sort', value });
+      this.$store.dispatch('fetchUsers');
     },
   },
 };
