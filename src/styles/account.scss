@@ -20,6 +20,7 @@ label {
   padding-left: 60px;
   padding-top: 57px;
   min-height: 460px;
+  position: relative;
 }
 .tabs{
   display: flex;
@@ -65,6 +66,9 @@ label {
   display: block;
   margin-bottom: 7px;
   object-fit: cover;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 8px;
 }
 .profileFoto__changeLink {
   font-family: "Roboto", sans-serif;
@@ -133,5 +137,8 @@ label {
   flex-basis: 280px;
 }
 .mobileFone{
+  margin-top: 29px;
+}
+.category{
   margin-top: 29px;
 }

@@ -23,7 +23,8 @@
       </li>
     </ul>
     <div class="current-user">
-      <span class="current-user__name">{{fullName}}</span>
+      <router-link to='/dashboard/account' tag='span'>{{fullName}}</router-link>
+      <!-- <span class="current-user__name">{{fullName}}</span> -->
       <a href="#">
         <img src="../assets/black-down-Shevron.svg" alt="shevron">
       </a>
@@ -58,5 +59,16 @@ export default {
 <style lang='scss'>
 
 @import '../styles/top-line.scss';
+
+.current-user span{
+  margin-right: 8px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #252f48;
+  cursor: pointer;
+}
 
 </style>

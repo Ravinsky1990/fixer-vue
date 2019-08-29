@@ -33,6 +33,7 @@ export default {
 	top: 0;
 	left: 0;
 	border-radius: 10px;
+	z-index: 999;
 }
 
 #circularG{
